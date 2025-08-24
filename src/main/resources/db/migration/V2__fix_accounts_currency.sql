@@ -1,0 +1,2 @@
+ALTER TABLE accounts
+    MODIFY currency VARCHAR(3) NOT NULL;
