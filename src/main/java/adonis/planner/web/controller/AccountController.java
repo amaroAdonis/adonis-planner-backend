@@ -7,6 +7,8 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -26,4 +28,10 @@ public class AccountController {
                 .currency(d.getCurrency()).openingBalance(d.getOpeningBalance()).build();
         return ResponseEntity.ok(svc.save(a));
     }
+
+    @GetMapping("/{id}/balance")
+    public ResponseEntity<BigDecimal> balance(@PathVariable Long id) {
+        return ResponseEntity.ok(svc.currentBalance(sec.current(), id));
+    }
+
 }

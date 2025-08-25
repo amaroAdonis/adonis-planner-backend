@@ -43,4 +43,6 @@ public class JwtTokenProvider {
         // apenas parse; se inválido/expirado, vai lançar exceção do JJWT
         Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
     }
+
+
 }

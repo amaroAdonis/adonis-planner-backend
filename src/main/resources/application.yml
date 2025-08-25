@@ -3,8 +3,10 @@ spring:
     default: dev
 
 jwt:
-  # 🔑 Chave secreta usada para assinar tokens JWT
-  # Em produção, defina via variável de ambiente: JWT_SECRET
   secret: ${JWT_SECRET:change-me-super-secret-32chars}
-  expirationMinutes: 30          # Tempo de expiração do access token
-  refreshExpirationDays: 7       # Tempo de expiração do refresh token
+  expirationMinutes: 30
+  refreshExpirationDays: 7
+logging:
+  level:
+    org.springframework.security: DEBUG
+    adonis.planner.security: DEBUG
